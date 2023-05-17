@@ -1,0 +1,9 @@
+body {
+    background: linear-gradient(rgb(21, 12, 46),rgb(15, 8, 27));
+    min-height: 100vh;
+    overflow-y: hidden;
+}
+.card{
+    margin-top: 20px;
+    padding:20px;
+}

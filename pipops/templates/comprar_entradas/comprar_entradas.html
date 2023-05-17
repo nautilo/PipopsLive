@@ -1,0 +1,76 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'comprar_entradas/css/estilos.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://nautilo.github.io/proyectoweb/img/noticias/flyer-detonando-millantu-vol6.jpg" class="img-fluid" alt="Image">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h1 class="card-title">Detonando Millantú Vol. 7</h1>
+                        <div class="empty-div">
+                            <form id="formComprar" action="/iniciar_pago/" method='POST'>
+                                {% csrf_token %}
+                                <label for="name">Cantidad:</label>
+                                <input type="number" min=1 max=500 id="cantidadentradas" name="cantidadentradas" value="1" oninput="calcularTotal()">
+                                <h4>Subtotal:</h4>
+                                <h4 id="subtotal">$3000</h4>
+                                <h4>Dcto. Promoción 2x5mil:</h4>
+                                <h4 id="descuento">$0</h4>
+                                <h3>Total:</h3>
+                                <h3 id="total">$3000</h3>
+                                <input class="btn btn-primary" id="btnComprar" type="submit" value="Comprar" form="formComprar">
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="description">Detonando Millantú Vol. 6
+                        Te invitamos a vivir una nueva edición de estas presentaciones en el local Millantú 😁
+                        LINE UP 📢:
+                        @sserrite 🎤 @ironicos.banda 🌌 @gaianemusica 🐝 @asi.me.dicen 🧢 @cry.pops 💀
+                        
+                        🤨 Fecha y hora: Sábado 1 de Abril, a las 21:00 Hrs
+                        📍Ubicación: Avenida Ambrosio O'higgins #2094 Restaurant Millantú
+                        🤑Entrada: 1x$3000 2x$5000 ¡No te lo pierdas!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'comprar_entradas/js/comprar_entradas.js' %}"></script>
+</body>
+
+</html>
